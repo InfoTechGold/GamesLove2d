@@ -25,7 +25,7 @@ function love.load()
     max_timer=2;
     timer=max_timer;
     pontos=0;
-
+    fonte=love.graphics.newFont(30);
 
 
 
@@ -63,6 +63,8 @@ function love.update(dt)
 
                     player.x=love.graphics.getWidth()/2;
                     player.y=love.graphics.getHeight()/2;
+                    max_timer=2;
+                    timer=max_timer;
                 end
             end
         end
@@ -205,8 +207,9 @@ function love.draw()
             love.graphics.draw(sprites.bullet,b.x,b.y,nil,0.3,0.3,sprites.bullet:getWidth()/2,sprites.bullet:getHeight()/2);
         end
     elseif(gameState==1)then  
-        
+        love.graphics.setFont(fonte);
         love.graphics.printf("toque na tela para começar o jogo: " ,0, 0 ,love.graphics.getWidth() , "center");
     end 
+    love.graphics.setFont(fonte);
     love.graphics.printf(" Pontos : " .. pontos, 0, love.graphics.getHeight()-100,love.graphics.getWidth(), "center");
 end
